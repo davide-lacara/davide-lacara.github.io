@@ -103,6 +103,18 @@ a:hover { color: var(--accent); }
 
 .divider { height: 1px; background: var(--rule); border: 0; margin: 2.75rem 0; }
 
+.band-gap { margin-top: 3.25rem; }
+
+.page-note {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin: 0 0 2rem;
+}
+
+.page-note a { color: var(--muted); border-bottom-color: var(--rule); }
+.page-note a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
 /* ---------- home ------------------------------------------- */
 
 .lead {
@@ -112,7 +124,13 @@ a:hover { color: var(--accent); }
   align-items: start;
 }
 
-.lead-text p { font-size: 1.125rem; line-height: 1.7; }
+.lead-text p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
 .lead-text p:last-child { margin-bottom: 0; }
 
 .portrait { margin: 0; }
@@ -174,7 +192,12 @@ a:hover { color: var(--accent); }
 
 .meta { font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); margin: 0 0 0.9rem; }
 
-.abstract { margin: 0; }
+.abstract {
+  margin: 0;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
 
 .venues {
   font-family: var(--sans);
@@ -208,9 +231,18 @@ a:hover { color: var(--accent); }
 
 /* ---------- personal --------------------------------------- */
 
-.note { max-width: 36rem; font-size: 1.125rem; line-height: 1.7; }
+.note {
+  max-width: 36rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
 
 .plate { margin: 0; max-width: 40rem; }
+
+.plate-gap { margin-top: 2.75rem; }
 
 .plate img {
   display: block;
@@ -253,7 +285,9 @@ a:hover { color: var(--accent); }
   .interest-line { font-size: 1.1875rem; }
 
   .selected { padding: 1.25rem 1.15rem; }
-  .courses > div { grid-template-columns: 4.25rem minmax(0, 1fr); gap: 0.9rem; }
+  .courses > div { display: block; padding: 0.8rem 0; }
+  .code { padding-top: 0; margin-bottom: 0.15rem; }
+  .title { font-size: 1.125rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
