@@ -1,11 +1,10 @@
 /* ============================================================
    Davide La Cara — personal site
-   One stylesheet for every page.
    ============================================================ */
 
 :root {
   --paper:   #fdfdfc;
-  --tint:    #f2f1ed;
+  --tint:    #f3f2ee;
   --ink:     #17171a;
   --muted:   #6b6b73;
   --rule:    #dedcd6;
@@ -28,24 +27,32 @@ body {
   line-height: 1.62;
 }
 
-.wrap { max-width: 58rem; margin: 0 auto; padding: 0 2rem; }
+/* Horizontal padding only — never the shorthand, or it wipes out
+   the vertical padding set on the elements that use this class. */
+.wrap {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 
 /* ---------- masthead --------------------------------------- */
 
-.masthead { padding-top: 3rem; }
+.masthead { padding-top: 3.25rem; }
 
 .masthead-inner {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1.5rem 2.5rem;
   flex-wrap: wrap;
-  padding-bottom: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--accent);
 }
 
 .wordmark {
   font-family: var(--display);
-  font-size: 2rem;
+  font-size: 1.875rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   margin: 0;
@@ -55,7 +62,7 @@ body {
 
 .masthead nav ul {
   display: flex;
-  gap: 1.75rem;
+  gap: 1.6rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -68,31 +75,19 @@ body {
   color: var(--muted);
   text-decoration: none;
   border: 0;
-  padding-bottom: 3px;
+  padding-bottom: 2px;
 }
 
 .masthead nav a:hover { color: var(--ink); }
-
-.masthead nav a[aria-current="page"] {
-  color: var(--ink);
-  border-bottom: 2px solid var(--accent);
-}
-
-.rule-strong { height: 2px; background: var(--accent); }
-.rule-hair   { height: 1px; background: var(--rule); margin-top: 3px; }
+.masthead nav a[aria-current="page"] { color: var(--ink); border-bottom: 1px solid var(--accent); }
 
 /* ---------- generic ---------------------------------------- */
 
-main { padding: 3.25rem 0 5rem; }
+.content { padding-top: 3rem; padding-bottom: 5rem; }
 
 p { margin: 0 0 1.1rem; }
 
-a {
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent);
-}
-
+a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); }
 a:hover { color: var(--accent); }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -103,26 +98,21 @@ a:hover { color: var(--accent); }
   font-weight: 600;
   letter-spacing: 0.05em;
   color: var(--muted);
-  margin: 0 0 1.4rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--rule);
+  margin: 0 0 1.1rem;
 }
 
-/* ---------- home: lead ------------------------------------- */
+.divider { height: 1px; background: var(--rule); border: 0; margin: 2.75rem 0; }
+
+/* ---------- home ------------------------------------------- */
 
 .lead {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 14rem;
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) 12rem;
+  gap: 2.75rem;
   align-items: start;
-  margin-bottom: 3.5rem;
 }
 
-.lead-text p {
-  font-size: 1.1875rem;
-  line-height: 1.68;
-}
-
+.lead-text p { font-size: 1.125rem; line-height: 1.7; }
 .lead-text p:last-child { margin-bottom: 0; }
 
 .portrait { margin: 0; }
@@ -139,90 +129,70 @@ a:hover { color: var(--accent); }
 .portrait figcaption {
   font-family: var(--sans);
   font-size: 0.75rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--muted);
-  margin-top: 0.9rem;
+  margin-top: 0.75rem;
 }
 
 .portrait figcaption a { color: var(--muted); border-bottom-color: var(--rule); }
 .portrait figcaption a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-/* ---------- home: interests -------------------------------- */
-
-.interests { margin-bottom: 3.5rem; }
-
 .interests ul {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--rule);
 }
 
 .interests li {
   font-family: var(--display);
-  font-size: 1.25rem;
-  padding: 0.9rem 1.25rem 0;
+  font-size: 1.1875rem;
+  padding: 0 1.15rem;
   border-left: 1px solid var(--rule);
 }
 
 .interests li:first-child { padding-left: 0; border-left: 0; }
 
-/* ---------- home: selected work ---------------------------- */
-
-.selected { background: var(--tint); padding: 1.75rem 1.9rem; }
-
-.selected .band { border-bottom-color: #dbd9d2; }
+.selected { background: var(--tint); padding: 1.6rem 1.75rem; }
 
 .selected h3 {
   font-family: var(--display);
-  font-size: 1.5rem;
+  font-size: 1.4375rem;
   font-weight: 600;
-  line-height: 1.28;
-  margin: 0 0 0.5rem;
+  line-height: 1.3;
+  margin: 0 0 0.45rem;
 }
 
 .selected h3 a { border: 0; }
 .selected h3 a:hover { color: var(--accent); }
-
 .selected p { margin: 0; }
 
-.laurel {
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  color: var(--accent);
-}
+.laurel { font-family: var(--sans); font-size: 0.8125rem; color: var(--accent); }
 
 /* ---------- research --------------------------------------- */
 
-.paper { padding-bottom: 2.75rem; margin-bottom: 2.75rem; border-bottom: 1px solid var(--rule); }
+.paper { padding-bottom: 2.5rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--rule); }
 .paper:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
 
 .paper h3 {
   font-family: var(--display);
-  font-size: 1.5rem;
+  font-size: 1.4375rem;
   font-weight: 600;
-  line-height: 1.28;
-  margin: 0 0 0.45rem;
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
 }
 
-.meta {
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  color: var(--muted);
-  margin: 0 0 1rem;
-}
+.meta { font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); margin: 0 0 0.9rem; }
 
-.abstract { margin: 0; max-width: 40rem; }
+.abstract { margin: 0; }
 
 .venues {
   font-family: var(--sans);
   font-size: 0.8125rem;
   line-height: 1.65;
   color: var(--muted);
-  margin: 1rem 0 0;
-  max-width: 40rem;
+  margin: 0.9rem 0 0;
 }
 
 .venues a { color: var(--muted); border-bottom-color: var(--rule); }
@@ -230,90 +200,28 @@ a:hover { color: var(--accent); }
 
 .award { color: var(--accent); }
 
-.section-gap { margin-top: 4rem; }
-
 /* ---------- teaching --------------------------------------- */
 
-.courses { margin: 0 0 1rem; }
+.courses { margin: 0; }
 
 .courses div {
   display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr);
+  grid-template-columns: 5rem minmax(0, 1fr);
   gap: 1.25rem;
-  padding: 0.7rem 0;
+  padding: 0.65rem 0;
   border-bottom: 1px solid var(--rule);
 }
 
 .courses div:last-child { border-bottom: 0; }
 
-.code {
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  color: var(--accent);
-  padding-top: 0.34rem;
-}
-
-.title { font-family: var(--display); font-size: 1.25rem; }
-
-/* ---------- responsive ------------------------------------- */
-
-@media (max-width: 44rem) {
-  .wrap { padding: 0 1.25rem; }
-  .masthead { padding-top: 2rem; }
-  .masthead-inner { gap: 0.9rem; }
-  .wordmark { font-size: 1.75rem; }
-  .masthead nav ul { gap: 1.15rem; flex-wrap: wrap; }
-
-  main { padding: 2.25rem 0 3.5rem; }
-
-  .lead { grid-template-columns: 1fr; gap: 1.75rem; margin-bottom: 2.5rem; }
-  .portrait { order: -1; max-width: 11rem; }
-  .lead-text p { font-size: 1.0625rem; }
-
-  .interests { margin-bottom: 2.5rem; }
-  .interests ul { grid-template-columns: 1fr; border-top: 0; }
-  .interests li {
-    padding: 0.55rem 0;
-    border-left: 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .interests li:first-child { border-top: 1px solid var(--rule); }
-
-  .selected { padding: 1.35rem 1.25rem; }
-  .courses div { grid-template-columns: 4.5rem minmax(0, 1fr); gap: 0.9rem; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
+.code { font-family: var(--sans); font-size: 0.8125rem; color: var(--accent); padding-top: 0.3rem; }
+.title { font-family: var(--display); font-size: 1.1875rem; }
 
 /* ---------- personal --------------------------------------- */
 
-.reading { margin: 0; padding: 0; list-style: none; }
+.note { max-width: 36rem; font-size: 1.125rem; line-height: 1.7; }
 
-.reading li {
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.reading li:last-child { border-bottom: 0; }
-
-.reading .book {
-  font-family: var(--display);
-  font-size: 1.25rem;
-  line-height: 1.3;
-}
-
-.reading .author {
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  color: var(--muted);
-  margin-top: 0.15rem;
-}
-
-.note { max-width: 34rem; }
-
-.plate { margin: 0 0 3rem; }
+.plate { margin: 0; max-width: 40rem; }
 
 .plate img {
   display: block;
@@ -329,4 +237,42 @@ a:hover { color: var(--accent); }
   font-size: 0.75rem;
   color: var(--muted);
   margin-top: 0.6rem;
+}
+
+.reading { margin: 0; padding: 0; list-style: none; }
+.reading li { padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.reading li:last-child { border-bottom: 0; }
+.reading .book { font-family: var(--display); font-size: 1.1875rem; line-height: 1.3; }
+.reading .author { font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); margin-top: 0.1rem; }
+
+/* ---------- responsive ------------------------------------- */
+
+@media (max-width: 44rem) {
+  .wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .masthead { padding-top: 2rem; }
+  .masthead-inner { gap: 0.85rem; padding-bottom: 0.8rem; }
+  .wordmark { font-size: 1.625rem; }
+  .masthead nav ul { gap: 1.1rem; flex-wrap: wrap; }
+
+  .content { padding-top: 2rem; padding-bottom: 3.5rem; }
+  .divider { margin: 2rem 0; }
+
+  .lead { grid-template-columns: 1fr; gap: 1.5rem; }
+  .portrait { order: -1; max-width: 10rem; }
+  .lead-text p, .note { font-size: 1.0625rem; }
+
+  .interests ul { display: block; }
+  .interests li {
+    padding: 0.45rem 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .interests li:first-child { border-top: 1px solid var(--rule); }
+
+  .selected { padding: 1.25rem 1.15rem; }
+  .courses div { grid-template-columns: 4.25rem minmax(0, 1fr); gap: 0.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
 }
