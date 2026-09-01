@@ -83,7 +83,7 @@ body {
 
 /* ---------- generic ---------------------------------------- */
 
-.content { padding-top: 3rem; padding-bottom: 5rem; }
+.content { padding-top: 3rem; padding-bottom: 8rem; }
 
 p { margin: 0 0 1.1rem; }
 
@@ -137,22 +137,11 @@ a:hover { color: var(--accent); }
 .portrait figcaption a { color: var(--muted); border-bottom-color: var(--rule); }
 .portrait figcaption a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-.interests ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.interests li {
+.interest-line {
   font-family: var(--display);
-  font-size: 1.1875rem;
-  padding: 0 1.15rem;
-  border-left: 1px solid var(--rule);
+  font-size: 1.25rem;
+  margin: 0;
 }
-
-.interests li:first-child { padding-left: 0; border-left: 0; }
 
 .selected { background: var(--tint); padding: 1.6rem 1.75rem; }
 
@@ -204,7 +193,7 @@ a:hover { color: var(--accent); }
 
 .courses { margin: 0; }
 
-.courses div {
+.courses > div {
   display: grid;
   grid-template-columns: 5rem minmax(0, 1fr);
   gap: 1.25rem;
@@ -212,7 +201,7 @@ a:hover { color: var(--accent); }
   border-bottom: 1px solid var(--rule);
 }
 
-.courses div:last-child { border-bottom: 0; }
+.courses > div:last-child { border-bottom: 0; }
 
 .code { font-family: var(--sans); font-size: 0.8125rem; color: var(--accent); padding-top: 0.3rem; }
 .title { font-family: var(--display); font-size: 1.1875rem; }
@@ -254,23 +243,17 @@ a:hover { color: var(--accent); }
   .wordmark { font-size: 1.625rem; }
   .masthead nav ul { gap: 1.1rem; flex-wrap: wrap; }
 
-  .content { padding-top: 2rem; padding-bottom: 3.5rem; }
+  .content { padding-top: 2rem; padding-bottom: 6rem; }
   .divider { margin: 2rem 0; }
 
   .lead { grid-template-columns: 1fr; gap: 1.5rem; }
   .portrait { order: -1; max-width: 10rem; }
   .lead-text p, .note { font-size: 1.0625rem; }
 
-  .interests ul { display: block; }
-  .interests li {
-    padding: 0.45rem 0;
-    border-left: 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .interests li:first-child { border-top: 1px solid var(--rule); }
+  .interest-line { font-size: 1.1875rem; }
 
   .selected { padding: 1.25rem 1.15rem; }
-  .courses div { grid-template-columns: 4.25rem minmax(0, 1fr); gap: 0.9rem; }
+  .courses > div { grid-template-columns: 4.25rem minmax(0, 1fr); gap: 0.9rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
