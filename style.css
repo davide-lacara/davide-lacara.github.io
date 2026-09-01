@@ -1,0 +1,226 @@
+/* ============================================================
+   Davide La Cara — personal site
+   One stylesheet for every page. Edit values in :root to
+   change colours and sizes everywhere at once.
+   ============================================================ */
+
+:root {
+  --paper:      #fdfdfc;
+  --ink:        #1b1b1f;
+  --muted:      #6c6c74;
+  --rule:       #e3e2dd;
+  --accent:     #7a2e2e;
+
+  --serif: "EB Garamond", Georgia, "Times New Roman", serif;
+  --sans:  ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --measure: 68ch;
+  --gutter:  4rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.1875rem;      /* 19px — Garamond needs the size */
+  line-height: 1.65;
+  font-feature-settings: "onum" 1;   /* old-style figures */
+}
+
+/* ---------- page frame ------------------------------------- */
+
+.page {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: var(--gutter);
+  max-width: 66rem;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 6rem;
+}
+
+.masthead { position: sticky; top: 4.5rem; align-self: start; }
+
+.masthead h1 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.9rem;
+  letter-spacing: -0.005em;
+}
+
+.masthead h1 a { color: inherit; text-decoration: none; background: none; }
+
+.masthead::after {
+  content: "";
+  display: block;
+  width: 2.25rem;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 1.4rem;
+}
+
+/* ---------- navigation ------------------------------------- */
+
+nav ul { list-style: none; margin: 0; padding: 0; }
+nav li { margin-bottom: 0.35rem; }
+
+nav a {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  text-decoration: none;
+  background: none;
+}
+
+nav a:hover { color: var(--ink); }
+
+nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+}
+
+/* ---------- content ---------------------------------------- */
+
+main { max-width: var(--measure); }
+
+main > *:first-child { margin-top: 0; }
+
+p { margin: 0 0 1.15rem; }
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  padding-bottom: 1px;
+}
+
+a:hover { color: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+h2 {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 3.5rem 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h2:first-of-type { margin-top: 0; }
+
+/* ---------- home ------------------------------------------- */
+
+.intro {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.intro img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%);
+}
+
+.intro p { font-size: 1.3125rem; line-height: 1.55; }
+
+.intro p:last-child { margin-bottom: 0; }
+
+.contact {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-top: 2rem;
+}
+
+.contact a { color: var(--muted); }
+.contact a:hover { color: var(--accent); }
+
+/* ---------- research --------------------------------------- */
+
+.paper { margin-bottom: 3.25rem; }
+.paper:last-child { margin-bottom: 0; }
+
+.paper h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
+}
+
+.meta {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin: 0 0 0.9rem;
+}
+
+.award { color: var(--accent); }
+
+.abstract { margin: 0; }
+
+.venues {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0.9rem 0 0;
+}
+
+/* ---------- teaching --------------------------------------- */
+
+.course { margin-bottom: 2.25rem; }
+.course:last-child { margin-bottom: 0; }
+
+.course h3 {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+}
+
+.course p { margin: 0; }
+
+/* ---------- responsive ------------------------------------- */
+
+@media (max-width: 46rem) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .masthead { position: static; }
+  .masthead::after { margin-bottom: 1.1rem; }
+
+  nav ul { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+  nav li { margin-bottom: 0; }
+
+  .intro { grid-template-columns: 1fr; gap: 1.75rem; }
+  .intro img { max-width: 11rem; }
+  .intro p { font-size: 1.1875rem; }
+
+  h2 { margin-top: 2.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
