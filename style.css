@@ -212,7 +212,7 @@ a:hover { color: var(--accent); }
 .venues a { color: var(--muted); border-bottom-color: var(--rule); }
 .venues a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-.award { color: var(--accent); }
+.award { color: var(--accent); font-weight: 600; }
 
 /* collapsible abstract — native <details>, no JavaScript */
 .abs { margin-top: 1rem; }
